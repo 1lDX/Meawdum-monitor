@@ -1,16 +1,19 @@
-export default function Sidebar() {
+import Image from "next/image"
+<Image
+  src="/images/logo.png"
+  alt="Logo"
+  width={120}
+  height={40}
+/>
+export default function Navbar() {
   return (
-    <div className="w-64 bg-gray-900 text-white p-4">
-      <h2 className="text-xl font-bold mb-6">Meawdum Monitor</h2>
-
-      <nav className="space-y-2">
-        <a href="/dashboard" className="block hover:text-gray-300">
-          Dashboard
-        </a>
-        <a href="/servers" className="block hover:text-gray-300">
-          Servers
-        </a>
-      </nav>
+    <div className="bg-gray-800 w-full h-16 flex items-center justify-between px-4">
+        <p className="text-white">Meawdum Monitor</p>
+        <div className="flex items-center space-x-4">
+            <button className="text-gray-300 hover:text-white">Status pages</button>
+            <button className="text-gray-300 hover:text-white">Dashboard</button>
+        </div>
     </div>
   )
-}
+}   
+    

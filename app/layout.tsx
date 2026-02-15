@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Prompt } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/layout/Sidebar"
+import Sidebar from "../components/layout/Sidebar";
 
 const prompt = Prompt({
   subsets: ["latin", "thai"],
@@ -22,12 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${prompt.variable} ${prompt.className} antialiased`}>
-        <div className="flex min-h-screen">
-         <Sidebar></Sidebar>
-         <main className="flex-1 p-4">{children}</main>
+        <div>
+          <Sidebar></Sidebar>
         </div>
-        
-      
+        {children}
       </body>
     </html>
   );

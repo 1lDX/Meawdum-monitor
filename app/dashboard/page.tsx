@@ -9,8 +9,6 @@ const processes = [
 export default function Page() {
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-
       <div className="grid grid-cols-4 gap-4">
         <div className="p-4 ">CPU USAGE 00%
             <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">

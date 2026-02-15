@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 const processes = [
-  { pid: 1234, name: "node", cpu: 12, memory: 150 },
-  { pid: 2345, name: "nginx", cpu: 5, memory: 50 },
-  { pid: 3456, name: "postgres", cpu: 18, memory: 300 },
+  { pid: 1234, name: "node", cpu: 12, memory: 150, status: "running" },
+  { pid: 2345, name: "nginx", cpu: 5    , memory: 50, status: "sleeping" },
+  { pid: 3456, name: "postgres", cpu: 18, memory: 300, status: "running" },
 ]
 
 export default function Page() {
@@ -34,7 +34,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded">
+    <div className="bg-white p-4 rounded">
         <h2 className="text-xl font-bold mb-4">Top processess</h2>
         <table className="w-full text-left">
           <thead>
@@ -43,6 +43,7 @@ export default function Page() {
                 <th className="border-b p-1">Name</th>
                 <th className="border-b p-1">CPU %</th>
                 <th className="border-b p-1">Memory (MB)</th>
+                <th className="border-b p-1">Status</th>
             </tr>
             </thead>
             <tbody>
@@ -52,11 +53,24 @@ export default function Page() {
                 <td className="border-b p-2">{proc.name}</td>
                 <td className="border-b p-2">{proc.cpu}%</td>
                 <td className="border-b p-2">{proc.memory}</td>
-                </tr>
-            ))}
+                <td className="border-b p-2">{proc.status}</td>
+
+                </tr>))}
+
             </tbody>
           </table> 
       </div>
+      <div className="bg-white p-4 rounded">
+        <h2 className="text-xl font-bold mb-4">Alerts</h2>
+        <div className="h-48 overflow-y-auto bg-gray-100 p-2 rounded">
+            <p className="text-red-600">[2024-06-01 12:00:00] CPU usage high: 95%</p>
+            <p className="text-red-600">[2024-06-01 12:05:00] Memory usage high: 90%</p>
+            <p className="text-red-600">[2024-06-01 12:10:00] Disk space low: 5% remaining</p>
+            <p className="text-red-600">[2024-06-01 12:15:00] Network latency high: 200ms</p>
+
+        </div>
+        </div>
     </div>
-    );
+    
+    ); 
 }

@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div>
+    <div className="">
+      <p className="text-9xl">test</p>
     </div>
-     
   );
 }

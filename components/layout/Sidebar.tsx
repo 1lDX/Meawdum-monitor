@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 
 export default function Sidebar() {
   return (
-    <div className="w-64 border-r p-4 bg-[#252525] text-white min-h-screen">
+    <div className="w-64 p-4 bg-[#252525] text-white min-h-screen">
       <h2 className="text-xl font-bold mb-4">MeMoni</h2>
       <div className="bg-white pb-0.5 opacity-16"></div>
       <div className="my-4 opacity-25 text-bold">Menu</div>

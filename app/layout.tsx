@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
-import UnderNavbar from "@/components/layout/UnderNavbar";
 
 const prompt = Prompt({
   subsets: ["latin", "thai"],
@@ -24,12 +22,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${prompt.variable} ${prompt.className} antialiased`}>
+        
+        <div className="flex min-h-screen">
 
-        <Sidebar />
+          <Sidebar />
 
-        <main className="p-6">
-          {children}
-        </main>
+          <main className="flex-1 bg-[#191919]">
+            {children}
+          </main>
+
+        </div>
+
       </body>
     </html>
   );

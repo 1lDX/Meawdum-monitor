@@ -70,19 +70,22 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartExample() {
+  console.log(`text-[${chartConfig.CPU.color}]`);
+
   return (
-    <Card className="w-[830px] bg-[#252525]">
-      <CardHeader>
-        <CardTitle className="text-white">System usage</CardTitle>
+    <Card className="w-full bg-[#252525] border-0 border-[#383838]">
+      <CardHeader className="flex h-fit items-baseline">
+        <CardTitle className="text-white text-lg">System usage</CardTitle>
+        <CardDescription className="text-xs">Overall System Usage</CardDescription>
       </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig} className="h-[150px] w-3xl">
+      <CardContent className="px-2">
+        <ChartContainer config={chartConfig} className="h-[30vh] w-full">
           <AreaChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: 0,
+              right: 20,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -106,37 +109,57 @@ export function ChartExample() {
             <Area
               dataKey="CPU"
               type="natural"
-              fill="var(--color-CPU)"
+              fill={chartConfig.CPU.color}
               fillOpacity={0.4}
-              stroke="var(--color-CPU)"
+              stroke={chartConfig.CPU.color}
             />
             <Area
               dataKey="Memory"
               type="natural"
-              fill="var(--color-Memory)"
+              fill={chartConfig.Memory.color}
               fillOpacity={0.4}
-              stroke="var(--color-Memory)"
+              stroke={chartConfig.Memory.color}
             />
             <Area
-              dataKey="DiskIO"
+              dataKey="DisksIO"
               type="natural"
-              fill="var(--color-DiskIO)"
+              fill={chartConfig.DiskIO.color}
               fillOpacity={0.4}
-              stroke="var(--color-DiskIO)"
+              stroke={chartConfig.DiskIO.color}
             />
           </AreaChart>
         </ChartContainer>
       </CardContent>
       <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm">
+        <div className="flex w-full justify-center gap-2 text-sm ">
           <div className="grid gap-2">
-            <div className="flex items-center gap-2 leading-none font-medium text-white">
-              <Icon icon="tabler:cpu" className="inline-block mr-2/"/>
-              CPU  
-              <Icon icon="fa-solid:memory" className="inline-block mr-2/"/>
-              MEMORY 
-              <Icon icon="fluent:line-horizontal-1-dash-dot-dash-20-filled" className="inline-block mr-2/"/>
-              DISK I/O
+            <div className="flex items-center gap-5 leading-none font-medium text-white">
+              <span className="flex">
+                <Icon
+                  icon="tabler:cpu"
+                  className="inline-block mr-2"
+                  style={{ color: chartConfig.CPU.color }}
+                />
+                <p>CPU</p>
+              </span>
+
+              <span className="flex">
+                <Icon
+                  icon="fa-solid:memory"
+                  className="inline-block mr-2"
+                  style={{ color: chartConfig.Memory.color }}
+                />
+                <p>MEMORY</p>
+              </span>
+
+              <span className="flex">
+                <Icon
+                  icon="fluent:line-horizontal-1-dash-dot-dash-20-filled"
+                  className="inline-block mr-2"
+                  style={{ color: chartConfig.DiskIO.color }}
+                />
+                <p>DISK I/O</p>
+              </span>
             </div>
           </div>
         </div>
